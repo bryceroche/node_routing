@@ -8,7 +8,7 @@ app.get('/', (req, res) => {
 })
 
 app.get('/hello', function (req, res) {
-  var hello = require('./hello');
+  var hello = require('./hello.js');
   hello.Hello(req,res);
 })
 
