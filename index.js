@@ -1,11 +1,14 @@
 const express = require('express')
 const app = express()
+app.use(express.bodyParser());
+
+
 app.get('/', (req, res) => {
   res.send('ADRI FOR LIFE!!  SUP......')
 })
 
 app.get('/hello', function (req, res) {
-  var hello = require('hello');
+  var hello = require('./hello');
   hello.Hello(req,res);
 })
 
@@ -29,3 +32,4 @@ app.delete('/user', function (req, res) {
 })
 
 app.listen(3000, () => console.log('Server running on port 3000'))
+
