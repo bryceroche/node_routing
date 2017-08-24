@@ -3,10 +3,11 @@ const app = express()
 const whitelist = require('./whitelist.js')
 const cors = require('cors')
 
+var list = whitelist.Whitelist();
 
 var corsOptions = {
   origin: function (origin, callback) {
-    if (whitelist.indexOf(origin) !== -1) {
+    if (list.indexOf(origin) !== -1) {
       callback(null, true)
     } else {
       callback(new Error('Not allowed by CORS'))
