@@ -1,6 +1,8 @@
 const express = require('express')
 const app = express()
-//app.use(express.bodyParser());
+
+var bodyParser = require('body-parser')
+app.use(bodyParser());
 
 
 app.get('/', (req, res) => {
