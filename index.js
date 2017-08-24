@@ -4,15 +4,25 @@ const whitelist = require('./whitelist.js')
 const cors = require('cors')
 
 
+var corsOptions = {
+  origin: function (origin, callback) {
+    if (whitelist.indexOf(origin) !== -1) {
+      callback(null, true)
+    } else {
+      callback(new Error('Not allowed by CORS'))
+    }
+  }
+}
+
+
 app.get('/', (req, res) => {
   res.send('ADRI FOR LIFE!!  SUP......')
 })
 
-app.get('/hello', function (req, res) {
+app.get('/hello', function (req, cors(corsOptions)) {
   var hello = require('./hello.js');
   hello.Hello(req,res);
 })
-
 
 app.get('/hey', function (req, res){
    res.send('hey man')
