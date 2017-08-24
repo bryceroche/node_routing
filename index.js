@@ -19,7 +19,7 @@ app.get('/', (req, res) => {
   res.send('ADRI FOR LIFE!!  SUP......')
 })
 
-app.get('/hello', function (req, cors(corsOptions)) {
+app.get('/hello', cors(corsOptions), function (req, res, next) {
   var hello = require('./hello.js');
   hello.Hello(req,res);
 })
