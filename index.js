@@ -1,8 +1,7 @@
 const express = require('express')
 const app = express()
-
-var bodyParser = require('body-parser')
-app.use(bodyParser());
+const whitelist = require('./whitelist.js')
+const cors = require('cors')
 
 
 app.get('/', (req, res) => {
