@@ -5,6 +5,8 @@ const cors = require('cors')
 
 var list = whitelist.Whitelist();
 
+res.send(origin);
+
 var corsOptions = {
   origin: function (origin, callback) {
     if (list[origin] === true) {
