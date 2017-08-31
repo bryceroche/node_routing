@@ -6,7 +6,7 @@ const cors = require('cors')
 var list = whitelist.Whitelist();
 app.use(cors());
 
-
+/*
 var corsOptions = {
   origin: function (origin, callback) {
     if (whitelist[origin] === true) {
@@ -16,13 +16,13 @@ var corsOptions = {
     }
   }
 }
-
+*/
 
 app.get('/', (req, res) => {
   res.send('ADRI FOR LIFE!!  SUP......')
 })
 
-app.get('/hello', cors(corsOptions), function (req, res, next) {
+app.get('/hello', function (req, res, next) {
   var hello = require('./hello.js');
   hello.Hello(req,res);
 })
