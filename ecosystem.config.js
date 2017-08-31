@@ -10,7 +10,7 @@ module.exports = {
       key: '~/Desktop/node_routing/ec2_expressv1.pem',
       ref: 'origin/master',
       repo: 'https://github.com/bryceroche/node_routing',
-      path: '/home/ubuntu/server/',
+      path: '/home/ubuntu/',
       'post-deploy': 'npm install && pm2 startOrRestart ecosystem.config.js'
     }
   }
