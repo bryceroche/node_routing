@@ -16,14 +16,20 @@ var corsOptions = {
   }
 }
 
+
+app.get('/hello', cors(corsOptions), function (req, res, next) {
+  res.json({msg: 'This is CORS-enabled for a whitelisted domain.'})
+})
+
+
 app.get('/', (req, res) => {
   res.send('ADRI FOR LIFE!!  SUP......')
 })
 
-app.get('/hello', cors(corsOptions), function (req, res, next) {
-  var hello = require('./hello.js');
-  hello.Hello(req,res);
-})
+//app.get('/hello', cors(corsOptions), function (req, res, next) {
+//  var hello = require('./hello.js');
+ // hello.Hello(req,res);
+//})
 
 app.get('/hey', function (req, res){
    res.send('hey man')
