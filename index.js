@@ -28,7 +28,7 @@ app.get('/hello', function (req, res, next) {
 })
 
 app.get('/hey', function (req, res){
-   res.send('hey man ... new message that we\'re are going to test ...')
+   res.send('hey man ... adam\'s new house is gonna be cool ...')
 })
 
 app.post('/', function (req, res) {
