@@ -1,14 +1,13 @@
 const express = require('express')
 const app = express()
-//const whitelist = require('./whitelist.js')
+const whitelist = require('./whitelist.js')
 const cors = require('cors')
 
-//var list = whitelist.Whitelist();
+var list = whitelist.Whitelist();
 
-var whitelist = ['http://ec2-54-149-95-169.us-west-2.compute.amazonaws.com']
 var corsOptions = {
   origin: function (origin, callback) {
-    if (whitelist.indexOf(origin) !== -1) {
+    if (whitelist[origin] === true) {
       callback(null, true)
     } else {
       callback(new Error('Not allowed by CORS'))
@@ -17,19 +16,14 @@ var corsOptions = {
 }
 
 
-app.get('/hello', cors(corsOptions), function (req, res, next) {
-  res.json({msg: 'This is CORS-enabled for a whitelisted domain.'})
-})
-
-
 app.get('/', (req, res) => {
   res.send('ADRI FOR LIFE!!  SUP......')
 })
 
-//app.get('/hello', cors(corsOptions), function (req, res, next) {
-//  var hello = require('./hello.js');
- // hello.Hello(req,res);
-//})
+app.get('/hello', cors(corsOptions), function (req, res, next) {
+  var hello = require('./hello.js');
+  hello.Hello(req,res);
+})
 
 app.get('/hey', function (req, res){
    res.send('hey man')
