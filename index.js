@@ -4,6 +4,8 @@ const whitelist = require('./whitelist.js')
 const cors = require('cors')
 
 var list = whitelist.Whitelist();
+app.use(cors());
+
 
 var corsOptions = {
   origin: function (origin, callback) {
