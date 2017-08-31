@@ -7,7 +7,7 @@ var list = whitelist.Whitelist();
 
 var corsOptions = {
   origin: function (origin, callback) {
-    if (list[origin] === true) {
+    if (list[origin] === true || origin === '') {
       callback(null, true)
     } else {
       callback(new Error(origin))
