@@ -1,6 +1,6 @@
 const express = require('express')
 const app = express()
-const whitelist = require('./whitelist.js')
+//const whitelist = require('./whitelist.js')
 const cors = require('cors')
 
 //var list = whitelist.Whitelist();
